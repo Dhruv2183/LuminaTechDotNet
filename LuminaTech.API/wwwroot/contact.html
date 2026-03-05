@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — LuminaTech</title>
+    <meta name="description"
+        content="Get in touch with LuminaTech. Request a product demo or reach out for enterprise solutions.">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">
+                <span class="logo-icon">◈</span>
+                LUMINATECH
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/products.html">Products</a></li>
+                <li><a href="/contact.html" style="color:var(--color-primary);">Contact</a></li>
+                <li><a href="/login.html" class="nav-cta" id="navAuthBtn">Get Started</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <span class="label">◈ GET IN TOUCH</span>
+            <h1 class="mt-2">Let's <span class="text-gradient">Talk</span></h1>
+            <p>Have a question or want to request a demo? We'd love to hear from you.</p>
+        </div>
+    </div>
+
+    <section class="section" style="padding-top:2rem;">
+        <div class="container">
+            <div class="two-col">
+                <!-- Contact Form -->
+                <div>
+                    <div class="glass-card" id="contactFormCard">
+                        <h3 class="mb-3">Send us a Message</h3>
+                        <form id="contactForm" onsubmit="submitContactForm(event)">
+                            <div class="form-group">
+                                <label for="contactName">Full Name *</label>
+                                <input type="text" id="contactName" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email Address *</label>
+                                <input type="email" id="contactEmail" required placeholder="john@company.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactCompany">Company Name</label>
+                                <input type="text" id="contactCompany" placeholder="Acme Inc.">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactInterest">Product Interest</label>
+                                <select id="contactInterest">
+                                    <option value="">Select a product...</option>
+                                    <option value="LuminaCore X1">LuminaCore X1</option>
+                                    <option value="NeuroSync Pro">NeuroSync Pro</option>
+                                    <option value="CloudVault Enterprise">CloudVault Enterprise</option>
+                                    <option value="QuantumShield">QuantumShield</option>
+                                    <option value="HoloLens Ultra">HoloLens Ultra</option>
+                                    <option value="Consulting">Consulting Services</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMessage">Message *</label>
+                                <textarea id="contactMessage" required
+                                    placeholder="Tell us about your project or question..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-full" id="contactSubmitBtn">
+                                Send Message →
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Success State (hidden by default) -->
+                    <div class="glass-card hidden" id="contactSuccess">
+                        <div class="success-state">
+                            <div class="success-checkmark">✓</div>
+                            <h3>Message Sent!</h3>
+                            <p style="color:var(--text-secondary);margin-top:0.75rem;">
+                                Thank you for reaching out. We'll be in touch within 24 hours.
+                            </p>
+                            <button class="btn btn-outline mt-3" onclick="resetContactForm()">Send Another
+                                Message</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <div class="glass-card mb-3">
+                        <div style="margin-bottom:0.75rem;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg></div>
+                        <h3 style="font-size:1.125rem;">Email Us</h3>
+                        <p style="color:var(--text-secondary);font-size:0.9375rem;">hello@luminatech.com</p>
+                    </div>
+                    <div class="glass-card mb-3">
+                        <div style="margin-bottom:0.75rem;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg></div>
+                        <h3 style="font-size:1.125rem;">Headquarters</h3>
+                        <p style="color:var(--text-secondary);font-size:0.9375rem;">1 Innovation Drive<br>San Francisco,
+                            CA 94105</p>
+                    </div>
+                    <div class="glass-card mb-3">
+                        <div style="margin-bottom:0.75rem;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="2" y1="12" x2="22" y2="12" />
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                            </svg></div>
+                        <h3 style="font-size:1.125rem;">Global Offices</h3>
+                        <p style="color:var(--text-secondary);font-size:0.9375rem;">London · Tokyo · Berlin · Singapore
+                            · Mumbai</p>
+                    </div>
+                    <div class="glass-card">
+                        <div style="margin-bottom:0.75rem;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg></div>
+                        <h3 style="font-size:1.125rem;">Response Time</h3>
+                        <p style="color:var(--text-secondary);font-size:0.9375rem;">We typically respond within 24 hours
+                            on business days.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <span>© 2024 LuminaTech. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>

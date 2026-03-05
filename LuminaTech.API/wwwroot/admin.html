@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel — LuminaTech</title>
+    <meta name="description" content="LuminaTech Admin Panel — manage products, users, and contact submissions.">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">
+                <span class="logo-icon">◈</span>
+                LUMINATECH
+                <span class="badge badge-admin" style="margin-left:0.5rem;">Admin</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/products.html">Products</a></li>
+                <li><a href="/dashboard.html">Dashboard</a></li>
+                <li><a href="#" class="nav-cta" id="navAuthBtn" onclick="logout()">Logout</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <div style="padding-top:5rem;">
+        <div class="container">
+            <div class="admin-grid">
+                <!-- Sidebar -->
+                <div class="glass-card admin-sidebar">
+                    <div class="sidebar-item active" onclick="showAdminSection('overview')" id="sideOverview"><svg
+                            width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            style="vertical-align:-3px">
+                            <path d="M18 20V10" />
+                            <path d="M12 20V4" />
+                            <path d="M6 20v-6" />
+                        </svg>
+                        Overview</div>
+                    <div class="sidebar-item" onclick="showAdminSection('products')" id="sideProducts"><svg width="18"
+                            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                            <line x1="12" y1="22.08" x2="12" y2="12" />
+                        </svg> Products</div>
+                    <div class="sidebar-item" onclick="showAdminSection('users')" id="sideUsers"><svg width="18"
+                            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg> Users</div>
+                    <div class="sidebar-item" onclick="showAdminSection('contacts')" id="sideContacts"><svg width="18"
+                            height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg> Contacts</div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="admin-content">
+                    <!-- Overview Section -->
+                    <div id="adminOverview">
+                        <h2 class="mb-3">Dashboard <span class="text-gradient">Overview</span></h2>
+                        <div class="admin-stat-cards" id="adminStats">
+                            <div class="glass-card admin-stat-card">
+                                <div class="stat-value" id="statUsers">—</div>
+                                <div class="stat-label">Total Users</div>
+                            </div>
+                            <div class="glass-card admin-stat-card">
+                                <div class="stat-value" id="statProducts">—</div>
+                                <div class="stat-label">Active Products</div>
+                            </div>
+                            <div class="glass-card admin-stat-card">
+                                <div class="stat-value" id="statContacts">—</div>
+                                <div class="stat-label">Total Inquiries</div>
+                            </div>
+                            <div class="glass-card admin-stat-card">
+                                <div class="stat-value" id="statUnread">—</div>
+                                <div class="stat-label">Unread Messages</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Section -->
+                    <div id="adminProducts" class="hidden">
+                        <div class="flex justify-between items-center mb-3">
+                            <h2>Manage <span class="text-gradient">Products</span></h2>
+                            <button class="btn btn-primary btn-sm" onclick="openProductModal()">+ Add Product</button>
+                        </div>
+                        <div class="glass-card" style="padding:0;overflow-x:auto;">
+                            <table class="data-table" id="productsTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="productsTableBody">
+                                    <tr>
+                                        <td colspan="6" class="text-center" style="padding:2rem;">Loading...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Users Section -->
+                    <div id="adminUsers" class="hidden">
+                        <h2 class="mb-3">Manage <span class="text-gradient">Users</span></h2>
+                        <div class="glass-card" style="padding:0;overflow-x:auto;">
+                            <table class="data-table" id="usersTable">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usersTableBody">
+                                    <tr>
+                                        <td colspan="6" class="text-center" style="padding:2rem;">Loading...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Contacts Section -->
+                    <div id="adminContacts" class="hidden">
+                        <h2 class="mb-3">Contact <span class="text-gradient">Submissions</span></h2>
+                        <div class="glass-card" style="padding:0;overflow-x:auto;">
+                            <table class="data-table" id="contactsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Company</th>
+                                        <th>Interest</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="contactsTableBody">
+                                    <tr>
+                                        <td colspan="6" class="text-center" style="padding:2rem;">Loading...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="productModalTitle">Add Product</h3>
+                <button class="modal-close" onclick="closeProductModal()">✕</button>
+            </div>
+            <form id="productForm" onsubmit="saveProduct(event)">
+                <input type="hidden" id="productId">
+                <div class="form-group">
+                    <label for="productName">Product Name</label>
+                    <input type="text" id="productName" required>
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Description</label>
+                    <textarea id="productDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Price ($)</label>
+                    <input type="number" id="productPrice" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="productCategory">Category</label>
+                    <select id="productCategory">
+                        <option value="Hardware">Hardware</option>
+                        <option value="Software">Software</option>
+                        <option value="Service">Service</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="productImageFile">Product Image</label>
+                    <div id="imageDropZone"
+                        style="border:2px dashed var(--glass-border);border-radius:var(--radius-md);padding:2rem;text-align:center;cursor:pointer;transition:all 0.3s ease;background:var(--glass-bg);position:relative;"
+                        onclick="document.getElementById('productImageFile').click()"
+                        ondragover="event.preventDefault();this.style.borderColor='var(--color-primary)';this.style.background='rgba(79,142,247,0.08)'"
+                        ondragleave="this.style.borderColor='var(--glass-border)';this.style.background='var(--glass-bg)'"
+                        ondrop="event.preventDefault();this.style.borderColor='var(--glass-border)';this.style.background='var(--glass-bg)';document.getElementById('productImageFile').files=event.dataTransfer.files;handleImagePreview()">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            style="margin-bottom:0.5rem">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="17 8 12 3 7 8" />
+                            <line x1="12" y1="3" x2="12" y2="15" />
+                        </svg>
+                        <div style="color:var(--text-secondary);font-size:0.875rem;">Click or drag image here</div>
+                        <div style="color:var(--text-muted);font-size:0.75rem;margin-top:0.25rem;">JPG, PNG, WebP, GIF ·
+                            Max 10MB</div>
+                    </div>
+                    <input type="file" id="productImageFile" accept="image/jpeg,image/png,image/webp,image/gif"
+                        style="display:none;" onchange="handleImagePreview()">
+                    <input type="hidden" id="productImageUrl">
+                    <div id="imagePreview" style="display:none;margin-top:0.75rem;"></div>
+                </div>
+                <div class="flex gap-2" style="justify-content:flex-end;">
+                    <button type="button" class="btn btn-glass btn-sm" onclick="closeProductModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>

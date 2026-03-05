@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout — LuminaTech</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand"><span class="logo-icon">◈</span> LUMINATECH</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/products.html">Products</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/login.html" class="nav-cta" id="navAuthBtn">Get Started</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <main class="section" style="min-height:80vh;padding-top:120px;">
+        <div class="container" style="max-width:700px;">
+            <div style="text-align:center;margin-bottom:2rem;">
+                <span class="label">◈ CHECKOUT</span>
+                <h2 class="mt-2">Complete Your Order</h2>
+            </div>
+
+            <div id="checkoutForm">
+                <div class="glass-card"
+                    style="backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--bg-card);margin-bottom:1.5rem;">
+                    <h3 style="margin-bottom:1.25rem;">Shipping Details</h3>
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Shipping Address</label>
+                        <input type="text" id="address" placeholder="123 Tech Boulevard, Silicon Valley, CA" required>
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" placeholder="San Francisco" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="zip">ZIP Code</label>
+                            <input type="text" id="zip" placeholder="94025" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card"
+                    style="backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--bg-card);margin-bottom:1.5rem;">
+                    <h3 style="margin-bottom:1.25rem;">Payment Method</h3>
+                    <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                        <label
+                            style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:1px solid var(--glass-border);border-radius:var(--radius-md);cursor:pointer;transition:all 0.2s;"
+                            onclick="this.querySelector('input').checked=true;document.querySelectorAll('.pay-option').forEach(o=>o.style.borderColor='var(--glass-border)');this.style.borderColor='var(--color-primary)';"
+                            class="pay-option">
+                            <input type="radio" name="payment" value="Credit Card" checked
+                                style="accent-color:var(--color-primary);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)"
+                                stroke-width="2">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                                <line x1="1" y1="10" x2="23" y2="10" />
+                            </svg>
+                            <span>Credit / Debit Card</span>
+                        </label>
+                        <label
+                            style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:1px solid var(--glass-border);border-radius:var(--radius-md);cursor:pointer;transition:all 0.2s;"
+                            onclick="this.querySelector('input').checked=true;document.querySelectorAll('.pay-option').forEach(o=>o.style.borderColor='var(--glass-border)');this.style.borderColor='var(--color-primary)';"
+                            class="pay-option">
+                            <input type="radio" name="payment" value="PayPal"
+                                style="accent-color:var(--color-primary);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M16 8h-6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h6" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
+                            </svg>
+                            <span>PayPal</span>
+                        </label>
+                        <label
+                            style="display:flex;align-items:center;gap:0.75rem;padding:1rem;border:1px solid var(--glass-border);border-radius:var(--radius-md);cursor:pointer;transition:all 0.2s;"
+                            onclick="this.querySelector('input').checked=true;document.querySelectorAll('.pay-option').forEach(o=>o.style.borderColor='var(--glass-border)');this.style.borderColor='var(--color-primary)';"
+                            class="pay-option">
+                            <input type="radio" name="payment" value="Crypto"
+                                style="accent-color:var(--color-primary);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)"
+                                stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23" />
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg>
+                            <span>Cryptocurrency</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="cartSummary" class="glass-card"
+                    style="backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--bg-card);margin-bottom:1.5rem;">
+                    <h3 style="margin-bottom:1rem;">Order Summary</h3>
+                    <div id="summaryItems" style="color:var(--text-secondary);font-size:0.9rem;">Loading...</div>
+                </div>
+
+                <button class="btn btn-primary btn-lg" style="width:100%" id="placeOrderBtn" onclick="placeOrder()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        style="vertical-align:-3px">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                        <line x1="1" y1="10" x2="23" y2="10" />
+                    </svg>
+                    Place Order
+                </button>
+            </div>
+
+            <!-- Success state (hidden initially) -->
+            <div id="orderSuccess" style="display:none;text-align:center;padding:3rem 0;">
+                <div
+                    style="width:80px;height:80px;border-radius:50%;background:rgba(52,211,153,0.1);border:2px solid var(--color-success);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)"
+                        stroke-width="2">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                </div>
+                <h2 style="margin-bottom:0.5rem;">Order Confirmed!</h2>
+                <p style="color:var(--text-secondary);margin-bottom:1.5rem;" id="orderDetails"></p>
+                <div style="display:flex;gap:1rem;justify-content:center;">
+                    <a href="/dashboard.html" class="btn btn-primary btn-sm">View Orders</a>
+                    <a href="/products.html" class="btn btn-outline btn-sm">Continue Shopping</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <span>© 2024 LuminaTech. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', loadSummary);
+
+        async function loadSummary() {
+            try {
+                const res = await fetch('/api/cart', { credentials: 'include' });
+                if (!res.ok) return;
+                const data = await res.json();
+                if (!data.items || data.items.length === 0) {
+                    document.getElementById('checkoutForm').innerHTML = `
+                        <div class="text-center" style="padding:3rem 0;">
+                            <p style="color:var(--text-secondary);margin-bottom:1rem;">Your cart is empty</p>
+                            <a href="/products.html" class="btn btn-primary btn-sm">Browse Products</a>
+                        </div>`;
+                    return;
+                }
+
+                const tax = data.total * 0.08;
+                const grand = data.total + tax;
+
+                document.getElementById('summaryItems').innerHTML = `
+                    ${data.items.map(i => `<div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;">
+                        <span>${i.product.name} × ${i.quantity}</span>
+                        <span>$${(i.product.price * i.quantity).toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
+                    </div>`).join('')}
+                    <hr style="border:none;border-top:1px solid var(--glass-border);margin:0.75rem 0;">
+                    <div style="display:flex;justify-content:space-between;"><span>Subtotal</span><span>$${data.total.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span></div>
+                    <div style="display:flex;justify-content:space-between;"><span>Tax (8%)</span><span>$${tax.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span></div>
+                    <div style="display:flex;justify-content:space-between;"><span>Shipping</span><span style="color:var(--color-success);">Free</span></div>
+                    <hr style="border:none;border-top:1px solid var(--glass-border);margin:0.75rem 0;">
+                    <div style="display:flex;justify-content:space-between;font-weight:700;font-size:1.1rem;">
+                        <span>Total</span>
+                        <span style="color:var(--color-primary);">$${grand.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
+                    </div>`;
+            } catch (e) { /* ignore */ }
+        }
+
+        async function placeOrder() {
+            const btn = document.getElementById('placeOrderBtn');
+            btn.disabled = true;
+            btn.textContent = 'Processing...';
+
+            const address = `${document.getElementById('fullName')?.value || 'N/A'}, ${document.getElementById('address')?.value || ''}, ${document.getElementById('city')?.value || ''} ${document.getElementById('zip')?.value || ''}`;
+            const paymentMethod = document.querySelector('input[name="payment"]:checked')?.value || 'Credit Card';
+
+            try {
+                const res = await fetch('/api/order/checkout', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({ shippingAddress: address, paymentMethod })
+                });
+
+                if (!res.ok) {
+                    const err = await res.json();
+                    showToast(err.error || 'Checkout failed', 'error');
+                    btn.disabled = false;
+                    btn.textContent = 'Place Order';
+                    return;
+                }
+
+                const data = await res.json();
+                document.getElementById('checkoutForm').style.display = 'none';
+                document.getElementById('orderSuccess').style.display = 'block';
+                document.getElementById('orderDetails').innerHTML = `
+                    Order <strong>${data.orderNumber}</strong> has been placed.<br>
+                    Payment ID: <code>${data.paymentId}</code><br>
+                    Total: <strong>$${data.total.toLocaleString('en-US', { minimumFractionDigits: 2 })}</strong>`;
+            } catch (e) {
+                showToast('Checkout failed', 'error');
+                btn.disabled = false;
+                btn.textContent = 'Place Order';
+            }
+        }
+    </script>
+</body>
+
+</html>

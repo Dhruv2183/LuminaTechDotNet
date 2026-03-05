@@ -1,0 +1,15 @@
+# LuminaTech
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.db
+*.db-shm
+*.db-wal
+.DS_Store
+appsettings.Development.json
+appsettings.Production.json
+appsettings.json
+/LuminaTech.API/wwwroot/media/*.mp4
+/LuminaTech.API/wwwroot/images/

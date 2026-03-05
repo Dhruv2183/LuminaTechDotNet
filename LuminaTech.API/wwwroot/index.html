@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuminaTech — The Future is Built Different</title>
+    <meta name="description"
+        content="LuminaTech is a premium tech company delivering cutting-edge hardware, software, and services. Experience the future of technology.">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">
+                <span class="logo-icon">◈</span>
+                LUMINATECH
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/products.html">Products</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+                <li><a href="/login.html" class="nav-cta" id="navAuthBtn">Get Started</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION (Scroll-Video) ===== -->
+    <section id="hero" style="height:280vh;position:relative;">
+        <!-- Sticky container for video + overlay -->
+        <div style="position:sticky;top:0;width:100%;height:100vh;overflow:hidden;">
+            <!-- Background Video (auto-plays smoothly on loop) -->
+            <video id="scroll-video" autoplay loop muted playsinline
+                style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+                <source src="https://res.cloudinary.com/dhgwfh6x0/video/upload/v1772658205/luminatech/hero.mp4"
+                    type="video/mp4">
+            </video>
+
+            <!-- Dark gradient overlay for readability -->
+            <div
+                style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(10,10,15,0.5) 0%, rgba(10,10,15,0.25) 40%, rgba(10,10,15,0.7) 100%);z-index:1;">
+            </div>
+
+            <!-- Scroll-driven text overlays -->
+            <div class="hero-overlay" style="z-index:3;" id="heroOverlay">
+                <span class="label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                    </svg> NEXT-GEN TECHNOLOGY</span>
+                <h1>The Future is<br><span class="text-gradient">Built Different</span></h1>
+                <p>We engineer the impossible. From quantum processors to neural interfaces — LuminaTech is redefining
+                    what technology can do.</p>
+                <a href="/products.html" class="btn btn-primary btn-lg">Explore Products →</a>
+            </div>
+
+            <!-- Second overlay (appears on scroll) -->
+            <div class="hero-overlay" style="z-index:3;opacity:0;" id="heroOverlay2">
+                <span class="label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg> PIONEERING INNOVATION</span>
+                <h1><span class="text-gradient">Quantum Speed.</span><br>Zero Compromise.</h1>
+                <p>128-core quantum processors. Neural interfaces. Post-quantum encryption. Welcome to the next era of
+                    computing.</p>
+                <a href="/products.html" class="btn btn-primary btn-lg">View Our Tech →</a>
+            </div>
+
+            <!-- Third overlay (appears further on scroll) -->
+            <div class="hero-overlay" style="z-index:3;opacity:0;" id="heroOverlay3">
+                <span class="label"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg> TRUSTED WORLDWIDE</span>
+                <h1>10M+ Users.<br><span class="text-gradient">One Mission.</span></h1>
+                <p>From Fortune 500 enterprises to cutting-edge startups — LuminaTech powers the world's most ambitious
+                    technology.</p>
+                <a href="/contact.html" class="btn btn-primary btn-lg">Get Started →</a>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div id="scrollIndicator"
+                style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:4;text-align:center;color:var(--text-secondary);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;animation:float 2s ease-in-out infinite;">
+                <div
+                    style="width:1px;height:40px;background:linear-gradient(to bottom, transparent, var(--color-primary));margin:0 auto 0.5rem;">
+                </div>
+                Scroll to Explore
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats bar moved to after Features section for better visibility -->
+
+    <!-- ===== PRODUCT TAGLINE ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="two-col reveal">
+                <div class="col-text">
+                    <span class="label">◈ WHY LUMINATECH</span>
+                    <h2>Technology That <span class="text-gradient">Speaks for Itself</span></h2>
+                    <p>We don't just build products — we craft experiences. Every component is meticulously engineered
+                        for performance, every interface designed for delight. From silicon to software, LuminaTech sets
+                        the standard.</p>
+                    <a href="/products.html" class="btn btn-outline">Explore Products →</a>
+                </div>
+                <div class="col-visual" style="position:relative;">
+                    <div class="glow-orb blue"
+                        style="width:300px;height:300px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                        <div class="glass-card" style="text-align:center;padding:1.5rem;">
+                            <div style="margin-bottom:0.5rem;"><svg width="32" height="32" viewBox="0 0 24 24"
+                                    fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                                </svg></div>
+                            <div style="font-weight:600;">Research</div>
+                            <div style="color:var(--text-secondary);font-size:0.8125rem;">$2B+ R&D investment</div>
+                        </div>
+                        <div class="glass-card" style="text-align:center;padding:1.5rem;">
+                            <div style="margin-bottom:0.5rem;"><svg width="32" height="32" viewBox="0 0 24 24"
+                                    fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="2" y1="12" x2="22" y2="12" />
+                                    <path
+                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                                </svg></div>
+                            <div style="font-weight:600;">Global</div>
+                            <div style="color:var(--text-secondary);font-size:0.8125rem;">40+ countries served</div>
+                        </div>
+                        <div class="glass-card" style="text-align:center;padding:1.5rem;">
+                            <div style="margin-bottom:0.5rem;"><svg width="32" height="32" viewBox="0 0 24 24"
+                                    fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="8" r="7" />
+                                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                                </svg></div>
+                            <div style="font-weight:600;">Awards</div>
+                            <div style="color:var(--text-secondary);font-size:0.8125rem;">100+ industry awards</div>
+                        </div>
+                        <div class="glass-card" style="text-align:center;padding:1.5rem;">
+                            <div style="margin-bottom:0.5rem;"><svg width="32" height="32" viewBox="0 0 24 24"
+                                    fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="9" y1="18" x2="15" y2="18" />
+                                    <line x1="10" y1="22" x2="14" y2="22" />
+                                    <path
+                                        d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14" />
+                                </svg></div>
+                            <div style="font-weight:600;">Patents</div>
+                            <div style="color:var(--text-secondary);font-size:0.8125rem;">500+ filed globally</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURE HIGHLIGHTS ===== -->
+    <section class="section" style="background:var(--bg-secondary);">
+        <div class="container">
+            <div class="text-center mb-4 reveal">
+                <span class="label">◈ WHAT WE DO</span>
+                <h2 class="mt-2">Built for the <span class="text-gradient">Bold</span></h2>
+            </div>
+            <div class="features-grid">
+                <div class="glass-card feature-card reveal">
+                    <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                        </svg></div>
+                    <h3>Quantum Computing</h3>
+                    <p>128-core quantum processors with neural-link architecture for unprecedented compute power.</p>
+                </div>
+                <div class="glass-card feature-card reveal">
+                    <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M12 2a4 4 0 0 1 4 4v1a3 3 0 0 1 3 3v1a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-1a3 3 0 0 1 3-3V6a4 4 0 0 1 4-4z" />
+                            <path d="M8 15v1a4 4 0 0 0 8 0v-1" />
+                            <line x1="12" y1="19" x2="12" y2="22" />
+                        </svg></div>
+                    <h3>Neural Interfaces</h3>
+                    <p>Seamless brain-computer integration that redefines human-machine interaction.</p>
+                </div>
+                <div class="glass-card feature-card reveal">
+                    <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        </svg></div>
+                    <h3>Post-Quantum Security</h3>
+                    <p>Lattice-based encryption algorithms that future-proof your entire security infrastructure.</p>
+                </div>
+                <div class="glass-card feature-card reveal">
+                    <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+                        </svg></div>
+                    <h3>Cloud Architecture</h3>
+                    <p>Military-grade encrypted cloud with zero-knowledge architecture and infinite scalability.</p>
+                </div>
+                <div class="glass-card feature-card reveal">
+                    <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg></div>
+                    <h3>Spatial Computing</h3>
+                    <p>16K per-eye AR/VR with photorealistic rendering for next-gen spatial experiences.</p>
+                </div>
+                <div class="glass-card feature-card reveal">
+                    <div class="icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg></div>
+                    <h3>Expert Consulting</h3>
+                    <p>End-to-end digital transformation strategy, architecture, and implementation by world-class
+                        engineers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATS BAR (placed after features for better visibility) ===== -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="10000000" data-suffix="+">0</div>
+                    <div class="stat-label">Users Worldwide</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="99.9" data-suffix="%" data-decimal="true">0</div>
+                    <div class="stat-label">Uptime Guarantee</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="4.9" data-suffix="★" data-decimal="true">0</div>
+                    <div class="stat-label">Average Rating</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-number" data-target="150" data-suffix="+">0</div>
+                    <div class="stat-label">Enterprise Clients</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials section">
+        <div class="container mb-4 reveal">
+            <span class="label">◈ TESTIMONIALS</span>
+            <h2 class="mt-2">Trusted by <span class="text-gradient">Industry Leaders</span></h2>
+        </div>
+        <div class="marquee-track">
+            <div class="glass-card testimonial-card">
+                <p class="quote">"LuminaTech's quantum processor reduced our ML training time by 400%. Absolute
+                    game-changer for our research division."</p>
+                <div class="author">
+                    <div class="avatar">SK</div>
+                    <div class="author-info">
+                        <div class="name">Sarah Kim</div>
+                        <div class="role">CTO, DataForge Inc.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card testimonial-card">
+                <p class="quote">"The neural interface prototype is unlike anything we've tested. LuminaTech is
+                    genuinely 10 years ahead of the competition."</p>
+                <div class="author">
+                    <div class="avatar">JR</div>
+                    <div class="author-info">
+                        <div class="name">James Rodriguez</div>
+                        <div class="role">Head of R&D, NeuroLink Labs</div>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card testimonial-card">
+                <p class="quote">"CloudVault handles our entire healthcare data infrastructure with zero downtime. Their
+                    security is unmatched."</p>
+                <div class="author">
+                    <div class="avatar">AP</div>
+                    <div class="author-info">
+                        <div class="name">Anika Patel</div>
+                        <div class="role">VP Engineering, MedSecure</div>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card testimonial-card">
+                <p class="quote">"Their consulting team architected our entire platform migration. Delivered on time,
+                    under budget, and exceeding every KPI."</p>
+                <div class="author">
+                    <div class="avatar">MW</div>
+                    <div class="author-info">
+                        <div class="name">Michael Wang</div>
+                        <div class="role">CEO, ScaleUp Ventures</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="glass-card testimonial-card">
+                <p class="quote">"LuminaTech's quantum processor reduced our ML training time by 400%. Absolute
+                    game-changer for our research division."</p>
+                <div class="author">
+                    <div class="avatar">SK</div>
+                    <div class="author-info">
+                        <div class="name">Sarah Kim</div>
+                        <div class="role">CTO, DataForge Inc.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card testimonial-card">
+                <p class="quote">"The neural interface prototype is unlike anything we've tested. LuminaTech is
+                    genuinely 10 years ahead of the competition."</p>
+                <div class="author">
+                    <div class="avatar">JR</div>
+                    <div class="author-info">
+                        <div class="name">James Rodriguez</div>
+                        <div class="role">Head of R&D, NeuroLink Labs</div>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card testimonial-card">
+                <p class="quote">"CloudVault handles our entire healthcare data infrastructure with zero downtime. Their
+                    security is unmatched."</p>
+                <div class="author">
+                    <div class="avatar">AP</div>
+                    <div class="author-info">
+                        <div class="name">Anika Patel</div>
+                        <div class="role">VP Engineering, MedSecure</div>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card testimonial-card">
+                <p class="quote">"Their consulting team architected our entire platform migration. Delivered on time,
+                    under budget, and exceeding every KPI."</p>
+                <div class="author">
+                    <div class="avatar">MW</div>
+                    <div class="author-info">
+                        <div class="name">Michael Wang</div>
+                        <div class="role">CEO, ScaleUp Ventures</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="cta-section section">
+        <div class="container">
+            <div class="glow-orb blue"
+                style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+            <div class="reveal">
+                <span class="label">◈ GET STARTED</span>
+                <h2 class="mt-2">Ready to Build the <span class="text-gradient">Future</span>?</h2>
+                <p>Join 10M+ users who trust LuminaTech to power their most ambitious projects.</p>
+                <div class="flex justify-center gap-2">
+                    <a href="/login.html" class="btn btn-primary btn-lg">Get Started Free →</a>
+                    <a href="/contact.html" class="btn btn-outline btn-lg">Request a Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">◈ LUMINATECH</div>
+                    <p class="footer-desc">Engineering the impossible since 2024. We build the technology that shapes
+                        tomorrow — quantum computing, neural interfaces, and beyond.</p>
+                </div>
+                <div>
+                    <h4>Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="/products.html">All Products</a></li>
+                        <li><a href="/products.html?category=Hardware">Hardware</a></li>
+                        <li><a href="/products.html?category=Software">Software</a></li>
+                        <li><a href="/products.html?category=Service">Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2024 LuminaTech. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="/js/hero-animation.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
