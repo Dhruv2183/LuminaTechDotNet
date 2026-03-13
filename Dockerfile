@@ -2,15 +2,14 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copy solution and project files first (for better Docker layer caching)
-COPY LuminaTech.sln .
+# Copy project files first (for better Docker layer caching)
+# Tests are excluded via .dockerignore, so we restore per-project instead of the .sln
 COPY LuminaTech.API/LuminaTech.API.csproj LuminaTech.API/
 COPY LuminaTech.Data/LuminaTech.Data.csproj LuminaTech.Data/
 COPY LuminaTech.Services/LuminaTech.Services.csproj LuminaTech.Services/
-COPY LuminaTech.Tests/LuminaTech.Tests.csproj LuminaTech.Tests/
 
-# Restore dependencies
-RUN dotnet restore LuminaTech.sln
+# Restore dependencies (API project pulls in Data + Services automatically)
+RUN dotnet restore LuminaTech.API/LuminaTech.API.csproj
 
 # Copy everything else and publish
 COPY . .
