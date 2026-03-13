@@ -127,7 +127,7 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
 });
 
-// Force HTTP scheme for localhost (fixes OAuth redirect_uri_mismatch)
+// Force HTTP scheme for localhost only (fixes OAuth redirect_uri_mismatch)
 if (app.Environment.IsDevelopment())
 {
     app.Use((context, next) =>
@@ -136,10 +136,11 @@ if (app.Environment.IsDevelopment())
         context.Request.Scheme = "http";
         return next();
     });
-
-    app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LuminaTech API v1"));
 }
+
+// Swagger enabled in all environments for demo/portfolio
+app.UseSwagger();
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LuminaTech API v1"));
 
 app.UseSerilogRequestLogging();
 app.UseCors("AllowAll");
